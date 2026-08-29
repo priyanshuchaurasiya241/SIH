@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SIH 26047 — Patient Case Taking Software — Technology Mapping</title>
+<style>
+  @page { margin: 18mm 14mm; }
+  @media print {
+    body { font-size: 10px; }
+    .page-break { page-break-before: always; }
+    table { page-break-inside: avoid; }
+    blockquote { page-break-inside: avoid; }
+    h2 { page-break-after: avoid; }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 11.5px;
+    line-height: 1.65;
+    color: #1a1a2e;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    background: #fff;
+  }
+  .title-section {
+    text-align: center;
+    padding: 40px 20px 30px;
+    border-bottom: 4px solid #1a56db;
+    margin-bottom: 30px;
+  }
+  .title-section h1 {
+    color: #1a56db;
+    font-size: 28px;
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+  }
+  .title-section .subtitle {
+    color: #4b5563;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .title-section .meta {
+    color: #9ca3af;
+    font-size: 11px;
+    margin-top: 12px;
+  }
+  h2 {
+    color: #1e40af;
+    font-size: 17px;
+    border-bottom: 2px solid #dbeafe;
+    padding-bottom: 6px;
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+  h3 {
+    color: #374151;
+    font-size: 13.5px;
+    margin-top: 18px;
+    margin-bottom: 8px;
+  }
+  p { margin: 8px 0; }
+  .goal {
+    border-left: 4px solid #3b82f6;
+    background: #eff6ff;
+    padding: 10px 16px;
+    margin: 10px 0 14px;
+    border-radius: 0 6px 6px 0;
+    font-size: 11px;
+  }
+  .alert {
+    padding: 12px 16px;
+    margin: 14px 0;
+    border-radius: 6px;
+    font-size: 11px;
+    line-height: 1.6;
+    page-break-inside: avoid;
+  }
+  .alert-tip { border-left: 4px solid #10b981; background: #ecfdf5; }
+  .alert-tip::before { content: "💡 TIP: "; font-weight: 700; color: #047857; }
+  .alert-important { border-left: 4px solid #8b5cf6; background: #f5f3ff; }
+  .alert-important::before { content: "📌 IMPORTANT: "; font-weight: 700; color: #6d28d9; }
+  .alert-warning { border-left: 4px solid #f59e0b; background: #fffbeb; }
+  .alert-warning::before { content: "⚠️ WARNING: "; font-weight: 700; color: #b45309; }
+  .alert-caution { border-left: 4px solid #ef4444; background: #fef2f2; }
+  .alert-caution::before { content: "🔴 CAUTION: "; font-weight: 700; color: #dc2626; }
+  .alert-note { border-left: 4px solid #3b82f6; background: #eff6ff; }
+  .alert-note::before { content: "📝 NOTE: "; font-weight: 700; color: #1d4ed8; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 16px;
+    font-size: 10.5px;
+  }
+  th {
+    background: linear-gradient(135deg, #1e40af, #3b82f6);
+    color: white;
+    padding: 9px 10px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 10.5px;
+  }
+  td {
+    padding: 8px 10px;
+    border: 1px solid #e5e7eb;
+    vertical-align: top;
+  }
+  tr:nth-child(even) { background-color: #f8fafc; }
+  code {
+    background: #f1f5f9;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-family: 'Cascadia Code', Consolas, monospace;
+    color: #1e40af;
+  }
+  .diagram {
+    background: #f0f9ff;
+    border: 2px dashed #93c5fd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 12px 0;
+    text-align: center;
+    font-size: 10px;
+    color: #1e40af;
+  }
+  .diagram .flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .diagram .node {
+    background: #dbeafe;
+    border: 1px solid #93c5fd;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 10px;
+    font-weight: 600;
+    color: #1e40af;
+  }
+  .diagram .arrow { font-size: 16px; color: #3b82f6; }
+  .diagram .decision { background: #fef3c7; border: 1px solid #fbbf24; color: #92400e; }
+  .diagram .alert-node { background: #fee2e2; border: 1px solid #fca5a5; color: #dc2626; }
+  .diagram .success-node { background: #d1fae5; border: 1px solid #6ee7b7; color: #047857; }
+  hr { border: none; border-top: 2px solid #e5e7eb; margin: 28px 0; }
+  ul, ol { padding-left: 20px; margin: 6px 0; }
+  li { margin-bottom: 3px; }
+  strong { color: #1e3a5f; }
+  .footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #e5e7eb;
+    color: #6b7280;
+    font-size: 10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="title-section">
+  <h1>SIH 26047 — Patient Case Taking Software</h1>
+  <div class="subtitle">Technology Mapping for All Pain Points</div>
+  <div class="meta">Smart India Hackathon 2025 | Technology Research Document</div>
+</div>
+
+<h2>Pain Point 1: Visual-Based Input &amp; Local Language Communication</h2>
+<div class="goal"><strong>Goal:</strong> Illiterate patients select visual images to describe symptoms; AI communicates in their local language via voice.</div>
+<h3>Technologies &amp; Tools</h3>
+<table>
+  <tr><th>Layer</th><th>Technology</th><th>Purpose</th></tr>
+  <tr><td><strong>Visual Symptom Picker</strong></td><td>Custom icon/image grid UI (React Native / Flutter)</td><td>Tap-based symptom selection using body-part illustrations</td></tr>
+  <tr><td><strong>Image Assets</strong></td><td>Open-source medical icon sets (e.g., Health Icons — healthicons.org)</td><td>Standardized, culturally-neutral medical pictograms</td></tr>
+  <tr><td><strong>Speech-to-Text</strong></td><td><strong>Bhashini API</strong> (Govt. of India — recommended) / Google Cloud STT / Azure Speech</td><td>Convert patient's spoken local language to text</td></tr>
+  <tr><td><strong>Text-to-Speech</strong></td><td><strong>Bhashini TTS API</strong> / Google Cloud TTS / Azure TTS</td><td>AI speaks back to the patient in their language</td></tr>
+  <tr><td><strong>Translation</strong></td><td><strong>Bhashini Translation API</strong> / <strong>IndicTrans2</strong> (AI4Bharat) / Google Translate</td><td>Translate between local language ↔ English</td></tr>
+  <tr><td><strong>Conversational AI</strong></td><td><strong>Google Gemini API</strong> / <strong>OpenAI GPT-4o</strong></td><td>Multilingual conversational medical assistant</td></tr>
+  <tr><td><strong>UI/UX Framework</strong></td><td><strong>Flutter</strong> (single codebase, works offline) or <strong>React Native</strong></td><td>Mobile-first, touch-friendly interface</td></tr>
+</table>
+<div class="alert alert-tip"><strong>Bhashini (bhashini.gov.in)</strong> is the Government of India's AI language platform. Using it in your SIH project will be a <strong>huge plus</strong> with judges — it supports 22 scheduled languages for STT, TTS, and translation.</div>
+
+<hr>
+
+<h2>Pain Point 2: Adaptive Follow-Up Questioning + GIS-Based Context</h2>
+<div class="goal"><strong>Goal:</strong> AI asks intelligent follow-up questions based on symptoms AND uses location/weather/environmental data to ask contextual questions.</div>
+<h3>Technologies &amp; Tools</h3>
+<table>
+  <tr><th>Layer</th><th>Technology</th><th>Purpose</th></tr>
+  <tr><td><strong>Adaptive Questioning</strong></td><td><strong>LLM with structured prompting</strong> (Gemini / GPT-4o) + medical decision tree</td><td>Generates contextually relevant follow-up questions</td></tr>
+  <tr><td><strong>Medical Knowledge Base</strong></td><td><strong>SNOMED-CT</strong> / <strong>ICD-11</strong></td><td>Structured medical taxonomy for symptom → follow-up mapping</td></tr>
+  <tr><td><strong>Prompt Engineering</strong></td><td><strong>Chain-of-Thought (CoT)</strong> + Few-shot examples</td><td>Guide AI to mimic doctor's questioning pattern</td></tr>
+  <tr><td><strong>GIS / Location</strong></td><td><strong>Google Maps API</strong> / <strong>OpenStreetMap</strong> + device GPS</td><td>Patient's location context</td></tr>
+  <tr><td><strong>Weather Data</strong></td><td><strong>OpenWeatherMap API</strong> / <strong>IMD API</strong></td><td>Rainfall, humidity, AQI at patient's location</td></tr>
+  <tr><td><strong>Outbreak Data</strong></td><td><strong>IDSP</strong> data / WHO feeds</td><td>Active disease outbreaks in the area</td></tr>
+  <tr><td><strong>Context Injection</strong></td><td>Feed GIS + weather + outbreak into LLM prompt</td><td>Environmentally aware questions</td></tr>
+</table>
+<div class="alert alert-important"><strong>Architecture:</strong> Build a <strong>Context Aggregator Service</strong> that pulls GIS, weather, and outbreak data, then injects it into the LLM prompt alongside the patient's symptoms.</div>
+<div class="diagram">
+  <strong>Architecture: Context-Aware Adaptive Questioning</strong>
+  <div class="flow">
+    <span class="node">Patient Symptom</span><span class="arrow">→</span>
+    <span class="node">Context Aggregator</span><span class="arrow">←</span>
+    <span class="node">GPS + Weather + Outbreak Data</span>
+  </div>
+  <div class="flow" style="margin-top:6px">
+    <span class="node">Context Aggregator</span><span class="arrow">→</span>
+    <span class="node">LLM with Enriched Prompt</span><span class="arrow">→</span>
+    <span class="node success-node">Adaptive Follow-Up Question</span>
+  </div>
+</div>
+
+<hr>
+<div class="page-break"></div>
+
+<h2>Pain Point 3: Red Flag Detection (Critical Condition Alert)</h2>
+<div class="goal"><strong>Goal:</strong> AI detects dangerous symptom patterns (e.g., recurring chest pain → possible cardiac arrest) and raises a RED FLAG alert.</div>
+<h3>Technologies &amp; Tools</h3>
+<table>
+  <tr><th>Layer</th><th>Technology</th><th>Purpose</th></tr>
+  <tr><td><strong>Rule-Based Engine</strong></td><td>Custom rule engine (Python) using WHO/NICE guidelines</td><td>Hard-coded rules: chest pain + sweating + jaw pain = 🚩 CARDIAC</td></tr>
+  <tr><td><strong>ML Classification</strong></td><td><strong>Scikit-learn</strong> / <strong>XGBoost</strong> / <strong>TensorFlow</strong></td><td>Predict severity score from symptom combinations</td></tr>
+  <tr><td><strong>Historical Analysis</strong></td><td>Time-series analysis on past visits</td><td>Detect worsening trends over weeks</td></tr>
+  <tr><td><strong>LLM Triage</strong></td><td><strong>Gemini / GPT-4o</strong> with triage prompt</td><td>AI flags potential emergencies</td></tr>
+  <tr><td><strong>Alert System</strong></td><td><strong>Firebase Cloud Messaging</strong> / <strong>Twilio SMS</strong></td><td>Notify nearest doctor/hospital immediately</td></tr>
+  <tr><td><strong>Guidelines DB</strong></td><td><strong>WHO ETAT</strong> / <strong>Manchester Triage System</strong></td><td>Evidence-based red flag definitions</td></tr>
+</table>
+<div class="alert alert-caution"><strong>Never rely solely on AI for red flags.</strong> Use a <strong>hybrid approach</strong>: Rule-based engine (deterministic) + LLM (intelligent) + Human doctor notification.</div>
+<div class="diagram">
+  <strong>Architecture: Red Flag Detection Pipeline</strong>
+  <div class="flow">
+    <span class="node">Symptoms + History</span><span class="arrow">→</span>
+    <span class="node decision">Rule-Based Check</span><span class="arrow">→ 🚩 Match →</span>
+    <span class="node alert-node">IMMEDIATE ALERT → Notify Doctor</span>
+  </div>
+  <div class="flow" style="margin-top:6px">
+    <span class="node decision">No Match</span><span class="arrow">→</span>
+    <span class="node">LLM Triage</span><span class="arrow">→</span>
+    <span class="node decision">High Risk?</span><span class="arrow">→</span>
+    <span class="node alert-node">ALERT</span>
+    <span style="margin:0 8px">or</span>
+    <span class="node success-node">Continue Consultation</span>
+  </div>
+</div>
+
+<hr>
+
+<h2>Pain Point 4: Reducing AI Hallucination</h2>
+<div class="goal"><strong>Goal:</strong> Ensure AI does not generate false/fabricated medical information.</div>
+<h3>Technologies &amp; Tools</h3>
+<table>
+  <tr><th>Layer</th><th>Technology</th><th>Purpose</th></tr>
+  <tr><td><strong>RAG</strong></td><td><strong>LangChain</strong> / <strong>LlamaIndex</strong> + <strong>ChromaDB</strong> / <strong>FAISS</strong> / <strong>Pinecone</strong></td><td>Retrieve from verified medical docs before generating</td></tr>
+  <tr><td><strong>Medical Sources</strong></td><td><strong>Indian Pharmacopoeia</strong>, <strong>CDSCO</strong>, <strong>WHO guidelines</strong>, <strong>AYUSH formulary</strong></td><td>Trusted, curated medical corpus</td></tr>
+  <tr><td><strong>Grounding</strong></td><td><strong>Google Gemini Grounding</strong> / citation layer</td><td>Every response cites its source</td></tr>
+  <tr><td><strong>Guardrails</strong></td><td><strong>NVIDIA NeMo Guardrails</strong> / <strong>Guardrails AI</strong></td><td>Block harmful or fabricated outputs</td></tr>
+  <tr><td><strong>Confidence Scoring</strong></td><td>Custom threshold — &lt; 80% → "Consult a doctor"</td><td>Avoid uncertain diagnoses</td></tr>
+  <tr><td><strong>Human-in-the-Loop</strong></td><td>Flag uncertain responses for doctor review</td><td>Final safety net</td></tr>
+  <tr><td><strong>Fine-Tuning</strong></td><td><strong>LLaMA 3</strong> / <strong>Mistral</strong> on Indian medical data</td><td>Domain-specific accuracy</td></tr>
+</table>
+<div class="alert alert-tip"><strong>Best Anti-Hallucination Stack:</strong><br>
+<code>RAG (LangChain + ChromaDB)</code> + <code>NeMo Guardrails</code> + <code>Confidence Scoring</code> + <code>Citation Enforcement</code> = <strong>4-layer defense</strong></div>
+<div class="diagram">
+  <strong>Architecture: 4-Layer Anti-Hallucination Pipeline</strong>
+  <div class="flow">
+    <span class="node">Patient Query</span><span class="arrow">→</span>
+    <span class="node">RAG Retrieval</span><span class="arrow">→</span>
+    <span class="node">LLM Grounded Response</span><span class="arrow">→</span>
+    <span class="node decision">Guardrails</span><span class="arrow">→</span>
+    <span class="node decision">Confidence &gt;80%?</span>
+  </div>
+  <div class="flow" style="margin-top:6px">
+    <span class="arrow">Yes →</span><span class="node success-node">✅ Deliver with Citation</span>
+    <span style="margin:0 10px">|</span>
+    <span class="arrow">No →</span><span class="node alert-node">⚠️ Refer to Doctor</span>
+  </div>
+</div>
+
+<hr>
+<div class="page-break"></div>
+
+<h2>Pain Point 5: Hardware Integration (BP Machine, Oximeter, etc.)</h2>
+<div class="goal"><strong>Goal:</strong> Connect medical devices (BP monitor, pulse oximeter, glucometer) to the software.</div>
+<h3>Technologies &amp; Tools</h3>
+<table>
+  <tr><th>Layer</th><th>Technology</th><th>Purpose</th></tr>
+  <tr><td><strong>BLE Devices</strong></td><td>Omron BP monitors, Contec pulse oximeters</td><td>Wireless data transfer</td></tr>
+  <tr><td><strong>Mobile BLE SDK</strong></td><td><strong>Flutter Blue Plus</strong> / <strong>react-native-ble-plx</strong></td><td>Connect from app to BLE devices</td></tr>
+  <tr><td><strong>Health Standards</strong></td><td><strong>HL7 FHIR</strong> / <strong>IEEE 11073</strong></td><td>Standardized data exchange</td></tr>
+  <tr><td><strong>IoT Gateway</strong></td><td><strong>Raspberry Pi</strong> / <strong>ESP32</strong></td><td>Bridge for older devices</td></tr>
+  <tr><td><strong>Cloud IoT</strong></td><td><strong>AWS IoT Core</strong> / <strong>Azure IoT Hub</strong></td><td>Receive and store readings</td></tr>
+  <tr><td><strong>Protocol</strong></td><td><strong>MQTT</strong></td><td>Real-time vitals transmission</td></tr>
+  <tr><td><strong>ABDM</strong></td><td><strong>Ayushman Bharat Digital Mission</strong> APIs</td><td>Store in national health records</td></tr>
+</table>
+<div class="alert alert-important"><strong>For SIH/Government:</strong> Integrate with <strong>ABDM</strong> for health records — India's national digital health infrastructure.</div>
+
+<hr>
+
+<h2>Pain Point 6: AES-256 Encryption &amp; Government-Grade Security</h2>
+<div class="goal"><strong>Goal:</strong> Implement AES-256 encryption as mandated by Indian government standards.</div>
+<h3>Technologies &amp; Tools</h3>
+<table>
+  <tr><th>Layer</th><th>Technology</th><th>Purpose</th></tr>
+  <tr><td><strong>Data-at-Rest</strong></td><td><strong>AES-256-GCM</strong> via <code>crypto</code> / <code>cryptography</code> / <code>javax.crypto</code></td><td>Encrypt stored patient data</td></tr>
+  <tr><td><strong>Database Encryption</strong></td><td><strong>MongoDB Encrypted Storage</strong> / <strong>PostgreSQL pgcrypto + TDE</strong></td><td>Transparent Data Encryption</td></tr>
+  <tr><td><strong>Data-in-Transit</strong></td><td><strong>TLS 1.3</strong> (HTTPS)</td><td>Encrypt API communication</td></tr>
+  <tr><td><strong>Key Management</strong></td><td><strong>AWS KMS</strong> / <strong>Azure Key Vault</strong> / <strong>HashiCorp Vault</strong></td><td>Store and rotate keys securely</td></tr>
+  <tr><td><strong>Authentication</strong></td><td><strong>OAuth 2.0 + JWT</strong> / <strong>Aadhaar eKYC</strong></td><td>Secure login</td></tr>
+  <tr><td><strong>Access Control</strong></td><td><strong>RBAC</strong> — Doctor, Nurse, Admin, Patient</td><td>Role-based data access</td></tr>
+  <tr><td><strong>Audit Logging</strong></td><td><strong>ELK Stack</strong> / <strong>AWS CloudTrail</strong></td><td>Compliance auditing</td></tr>
+  <tr><td><strong>Compliance</strong></td><td><strong>IT Act 2000</strong> / <strong>DISHA</strong> / <strong>HIPAA</strong></td><td>Legal framework</td></tr>
+</table>
+<div class="alert alert-note"><strong>Implementation Pattern:</strong><br>
+1. Generate 256-bit key via secure KMS<br>
+2. Encrypt patient data with AES-256-GCM before storing<br>
+3. Store key in KMS / Vault<br>
+4. Decrypt only for authorized users (RBAC check first)<br>
+5. All API calls over TLS 1.3</div>
+
+<hr>
+<div class="page-break"></div>
+
+<h2>Pain Point 7: Doctor's Handwriting Recognition (Prescription OCR)</h2>
+<div class="goal"><strong>Goal:</strong> Accurately read doctor's handwritten prescriptions and verify medicine names.</div>
+<h3>Technologies &amp; Tools</h3>
+<table>
+  <tr><th>Layer</th><th>Technology</th><th>Purpose</th></tr>
+  <tr><td><strong>Handwriting OCR</strong></td><td><strong>Google Cloud Vision API</strong> / <strong>Azure AI Document Intelligence</strong> / <strong>Tesseract</strong></td><td>Extract text from handwriting</td></tr>
+  <tr><td><strong>Medical OCR</strong></td><td><strong>Google Gemini Vision</strong> / <strong>GPT-4o Vision</strong></td><td>AI reads with medical context</td></tr>
+  <tr><td><strong>Medicine Verification</strong></td><td><strong>CDSCO Drug DB</strong> / <strong>Indian Pharmacopoeia</strong> / <strong>RxNorm</strong> / <strong>OpenFDA</strong></td><td>Verify medicine name exists</td></tr>
+  <tr><td><strong>Fuzzy Matching</strong></td><td><strong>RapidFuzz</strong> / <strong>FuzzyWuzzy</strong> / Levenshtein Distance</td><td>"Amoxicilin" → "Amoxicillin"</td></tr>
+  <tr><td><strong>Multi-Pass</strong></td><td>3 OCR engines → majority voting → drug DB → confidence</td><td>Triple verification</td></tr>
+  <tr><td><strong>Human Review</strong></td><td>If confidence &lt; 85% → pharmacist/doctor review</td><td>Safety net</td></tr>
+</table>
+<div class="alert alert-warning"><strong>Critical Safety:</strong> NEVER display a medicine name without drug database verification. Wrong identification can be <strong>life-threatening</strong>.</div>
+<div class="diagram">
+  <strong>Architecture: Multi-Pass Prescription OCR</strong>
+  <div class="flow">
+    <span class="node">Upload Image</span><span class="arrow">→</span>
+    <span class="node">OCR 1: Google Vision</span>
+    <span class="node">OCR 2: Gemini Vision</span>
+    <span class="node">OCR 3: Azure</span>
+  </div>
+  <div class="flow" style="margin-top:6px">
+    <span class="arrow">↓</span>
+    <span class="node decision">Majority Voting</span><span class="arrow">→</span>
+    <span class="node">Fuzzy Match vs Drug DB</span><span class="arrow">→</span>
+    <span class="node decision">Confidence &gt;85%?</span>
+  </div>
+  <div class="flow" style="margin-top:6px">
+    <span class="arrow">Yes →</span><span class="node success-node">✅ Verified Medicine</span>
+    <span style="margin:0 10px">|</span>
+    <span class="arrow">No →</span><span class="node alert-node">⚠️ Doctor Review</span>
+  </div>
+</div>
+
+<hr>
+
+<h2>Pain Point 8: Prakriti-Based Classification Algorithm</h2>
+<div class="goal"><strong>Goal:</strong> Classify patient's body constitution (Prakriti) as per Ayurveda for personalized treatment.</div>
+<h3>What is Prakriti?</h3>
+<p><strong>Prakriti</strong> classifies individuals into <strong>7 body constitution types</strong> based on three doshas:</p>
+<table>
+  <tr><th>Dosha</th><th>Characteristics</th></tr>
+  <tr><td><strong>Vata</strong></td><td>Thin build, dry skin, cold hands, anxious, creative, irregular digestion</td></tr>
+  <tr><td><strong>Pitta</strong></td><td>Medium build, warm body, sharp intellect, irritable, strong digestion</td></tr>
+  <tr><td><strong>Kapha</strong></td><td>Heavy build, oily skin, calm, slow digestion, good stamina</td></tr>
+</table>
+<p>7 types: <strong>Vata, Pitta, Kapha, Vata-Pitta, Vata-Kapha, Pitta-Kapha, Tridoshic (balanced)</strong></p>
+<h3>Technologies &amp; Tools</h3>
+<table>
+  <tr><th>Layer</th><th>Technology</th><th>Purpose</th></tr>
+  <tr><td><strong>Questionnaire</strong></td><td><strong>Prakriti Pariksha</strong> (CCRAS/AYUSH) — 30-50 questions</td><td>Structured data collection</td></tr>
+  <tr><td><strong>ML Model</strong></td><td><strong>Random Forest</strong> / <strong>SVM</strong> / <strong>XGBoost</strong></td><td>Classify into 7 Prakriti types</td></tr>
+  <tr><td><strong>Datasets</strong></td><td>AIIMS / CCRAS published datasets</td><td>Training data</td></tr>
+  <tr><td><strong>Features</strong></td><td>BMI, skin type, digestion, sleep, emotions, pulse</td><td>Input features</td></tr>
+  <tr><td><strong>Pulse Analysis</strong></td><td><strong>Nadi Pariksha</strong> via wearable sensors + <strong>SciPy/NumPy</strong></td><td>Pulse waveform Prakriti detection</td></tr>
+  <tr><td><strong>Integration</strong></td><td>Prakriti → diet/lifestyle/herbs from <strong>AYUSH Formulary</strong></td><td>Personalized Ayurvedic recommendations</td></tr>
+  <tr><td><strong>Framework</strong></td><td><strong>Scikit-learn</strong> / <strong>TensorFlow</strong> / <strong>PyTorch</strong></td><td>ML framework</td></tr>
+</table>
+<div class="alert alert-note"><strong>Research:</strong> Multiple Indian papers achieved <strong>85-92% accuracy</strong> using Random Forest/SVM on questionnaire features.</div>
+<div class="diagram">
+  <strong>Architecture: Prakriti Classification</strong>
+  <div class="flow">
+    <span class="node">Questionnaire (30-50 Qs)</span><span class="arrow">→</span>
+    <span class="node">Feature Extraction</span><span class="arrow">→</span>
+    <span class="node decision">ML Model (RF / SVM)</span><span class="arrow">→</span>
+    <span class="node success-node">Prakriti Type</span><span class="arrow">→</span>
+    <span class="node">Ayurvedic Recommendations</span>
+  </div>
+</div>
+
+<hr>
+
+<h2>🏗️ Recommended Overall Tech Stack</h2>
+<table>
+  <tr><th>Component</th><th>Recommended Technology</th></tr>
+  <tr><td><strong>Frontend</strong></td><td>Flutter (mobile) / React.js (web)</td></tr>
+  <tr><td><strong>Backend</strong></td><td>Node.js (Express) / Python (FastAPI)</td></tr>
+  <tr><td><strong>Database</strong></td><td>PostgreSQL (structured) + MongoDB (unstructured)</td></tr>
+  <tr><td><strong>AI/LLM</strong></td><td>Google Gemini API / GPT-4o</td></tr>
+  <tr><td><strong>RAG</strong></td><td>LangChain + ChromaDB / FAISS</td></tr>
+  <tr><td><strong>Language AI</strong></td><td>Bhashini API (Govt. of India)</td></tr>
+  <tr><td><strong>OCR</strong></td><td>Google Vision API + Gemini Vision</td></tr>
+  <tr><td><strong>IoT/Hardware</strong></td><td>BLE + MQTT + FHIR</td></tr>
+  <tr><td><strong>Security</strong></td><td>AES-256-GCM + TLS 1.3 + HashiCorp Vault</td></tr>
+  <tr><td><strong>GIS</strong></td><td>Google Maps API + OpenWeatherMap</td></tr>
+  <tr><td><strong>Health Records</strong></td><td>ABDM (Ayushman Bharat) Integration</td></tr>
+  <tr><td><strong>ML/Prakriti</strong></td><td>Scikit-learn / XGBoost</td></tr>
+  <tr><td><strong>Hosting</strong></td><td>AWS / Google Cloud / NIC (Govt. Cloud)</td></tr>
+</table>
+
+<div class="footer">
+  <p><strong>SIH 2025 — Problem Statement 26047 — Patient Case Taking Software</strong></p>
+  <p>Technology Mapping Document</p>
+</div>
+
+</body>
+</html>

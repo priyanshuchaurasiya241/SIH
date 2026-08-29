@@ -1,0 +1,119 @@
+{
+  "symptoms": [
+    {
+      "id": "chest_pain",
+      "label": "Chest Pain / छाती में दर्द",
+      "category": "cardiac",
+      "icon": "HeartPulse",
+      "urgency": "HIGH",
+      "bodyPart": "chest"
+    },
+    {
+      "id": "breathlessness",
+      "label": "Shortness of Breath / सांस फूलना",
+      "category": "respiratory",
+      "icon": "Wind",
+      "urgency": "HIGH",
+      "bodyPart": "chest"
+    },
+    {
+      "id": "cough",
+      "label": "Cough / खांसी",
+      "category": "respiratory",
+      "icon": "Activity",
+      "urgency": "MEDIUM",
+      "bodyPart": "throat"
+    },
+    {
+      "id": "fever",
+      "label": "Fever / बुखार",
+      "category": "general",
+      "icon": "Thermometer",
+      "urgency": "MEDIUM",
+      "bodyPart": "head"
+    },
+    {
+      "id": "stomach_pain",
+      "label": "Stomach Pain / पेट दर्द (उदर शूल)",
+      "category": "digestive",
+      "icon": "ShieldAlert",
+      "urgency": "MEDIUM",
+      "bodyPart": "abdomen"
+    },
+    {
+      "id": "headache",
+      "label": "Headache / सिर दर्द (शिरःशूल)",
+      "category": "neurological",
+      "icon": "Brain",
+      "urgency": "LOW_TO_HIGH",
+      "bodyPart": "head"
+    },
+    {
+      "id": "joint_pain",
+      "label": "Joint / Knee Pain / जोड़ों में दर्द (संधिशूल)",
+      "category": "musculoskeletal",
+      "icon": "Bone",
+      "urgency": "LOW",
+      "bodyPart": "joints"
+    },
+    {
+      "id": "skin_rash",
+      "label": "Skin Rash / Itching / खुजली (कुष्ठ/कण्डू)",
+      "category": "dermatology",
+      "icon": "Sparkles",
+      "urgency": "LOW",
+      "bodyPart": "skin"
+    },
+    {
+      "id": "weakness",
+      "label": "Fatigue / Dizziness / चक्कर व कमजोरी",
+      "category": "general",
+      "icon": "ZapOff",
+      "urgency": "MEDIUM",
+      "bodyPart": "general"
+    },
+    {
+      "id": "digestive_issue",
+      "label": "Indigestion / Constipation / कब्ज व अपच (अग्निमांद्य)",
+      "category": "ayush_digestive",
+      "icon": "Flame",
+      "urgency": "LOW",
+      "bodyPart": "abdomen"
+    }
+  ],
+  "weatherTriggers": {
+    "rain": {
+      "query": "क्या आप हाल ही में बारिश में भीगे हैं या गंदे पानी के संपर्क में आए हैं? (Were you exposed to rain or waterlogging recently?)",
+      "diseaseRisk": [
+        "Dengue",
+        "Leptospirosis",
+        "Viral Fever",
+        "Vata-Kopam"
+      ]
+    },
+    "cold": {
+      "query": "क्या ठंड लगने के बाद लक्षण बढ़े हैं? (Did symptoms worsen with cold weather exposure?)",
+      "diseaseRisk": [
+        "Vata-Kaphaja Pratishyaya",
+        "Bronchospasm",
+        "Arthritis flare"
+      ]
+    },
+    "high_aqi": {
+      "query": "क्या आपको धूल, धुएं या प्रदूषण से सांस लेने में तकलीफ हो रही है? (Is breathing aggravated by smoke or dust?)",
+      "diseaseRisk": [
+        "Asthma Exacerbation",
+        "Kaphaja Kasa",
+        "COPD"
+      ]
+    },
+    "extreme_heat": {
+      "query": "क्या आपको तेज धूप या गर्मी के कारण सिरदर्द, उल्टी या अत्यधिक प्यास है? (Are symptoms related to severe sun/heat exposure?)",
+      "diseaseRisk": [
+        "Pitta Prakopa",
+        "Dehydration",
+        "Heat Exhaustion"
+      ]
+    }
+  }
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "AY001",
+    "name": "Sudarshan Vati",
+    "dosha": "Tridoshahara",
+    "indication": "Jwara (Fever), Ama Pachana",
+    "dose": "1-2 tablets BD with warm water"
+  },
+  {
+    "id": "AY002",
+    "name": "Sitopaladi Churna",
+    "dosha": "Kaphapittahara",
+    "indication": "Kasa (Cough), Shwasa (Breathing difficulty), Rajayakshma",
+    "dose": "2-3g with Honey / Ghee"
+  },
+  {
+    "id": "AY003",
+    "name": "Tribhuvan Kirti Ras",
+    "dosha": "Vatakaphahara",
+    "indication": "Pratishyaya (Rhinitis), Acute Fever, Body Ache",
+    "dose": "1 tablet with ginger juice & honey"
+  },
+  {
+    "id": "AY004",
+    "name": "Arogyavardhini Vati",
+    "dosha": "Tridoshahara, Deepana-Pachana",
+    "indication": "Yakrit Vikara (Liver disorders), Agnimandya, Kushtha (Skin)",
+    "dose": "1-2 tablets BD"
+  },
+  {
+    "id": "AY005",
+    "name": "Triphala Churna",
+    "dosha": "Tridoshahara, Rasayana",
+    "indication": "Vibandha (Constipation), Netra Roga, Detoxification",
+    "dose": "3-6g with lukewarm water at bedtime"
+  },
+  {
+    "id": "AY006",
+    "name": "Ashwagandha Churna / Capsule",
+    "dosha": "Vatakaphahara, Balya",
+    "indication": "Daurbalya (General weakness), Manas Roga (Stress), Nidranasha",
+    "dose": "3-5g with warm milk"
+  },
+  {
+    "id": "AY007",
+    "name": "Brahmi Vati / Ghrita",
+    "dosha": "Pitta-Vatahara, Medhya",
+    "indication": "Smriti Mandya, Anxiety, Headache, High BP adjunct",
+    "dose": "1 tablet BD"
+  },
+  {
+    "id": "AY008",
+    "name": "Yogaraj Guggulu",
+    "dosha": "Vatahara, Shoolahara",
+    "indication": "Sandhivata (Osteoarthritis), Amavata (Rheumatoid arthritis), Kati Shoola",
+    "dose": "2 tablets BD with Dashamoola Kwatha"
+  },
+  {
+    "id": "AY009",
+    "name": "Chitrakadi Vati",
+    "dosha": "Vatakaphahara, Deepana",
+    "indication": "Agnimandya (Low digestive fire), Ajeerna, Grahani",
+    "dose": "1-2 tablets before meals"
+  },
+  {
+    "id": "AY010",
+    "name": "Mahasudarshan Kwatha",
+    "dosha": "Tridoshahara",
+    "indication": "Vishamajwara (Chronic/intermittent fevers), Pitta Jwara",
+    "dose": "15-20ml with equal warm water"
+  }
+]

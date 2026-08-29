@@ -1,0 +1,186 @@
+[
+  {
+    "id": "pq1",
+    "category": "Physical Frame & Body Build",
+    "questionEn": "How would you describe your body build and weight?",
+    "questionHi": "आपकी शारीरिक बनावट और वजन कैसा है?",
+    "options": [
+      {
+        "text": "Thin, slender, bones prominent, difficult to gain weight",
+        "dosha": "Vata",
+        "score": 3
+      },
+      {
+        "text": "Medium build, athletic, moderate weight, easy to gain/lose",
+        "dosha": "Pitta",
+        "score": 3
+      },
+      {
+        "text": "Heavy, broad frame, sturdy, gains weight easily, difficult to lose",
+        "dosha": "Kapha",
+        "score": 3
+      }
+    ]
+  },
+  {
+    "id": "pq2",
+    "category": "Skin Texture & Temperature",
+    "questionEn": "How does your skin feel normally?",
+    "questionHi": "आपकी त्वचा सामान्यतः कैसी रहती है?",
+    "options": [
+      {
+        "text": "Dry, rough, thin, cracks easily, cool to touch",
+        "dosha": "Vata",
+        "score": 3
+      },
+      {
+        "text": "Warm, soft, prone to redness, moles/freckles, acne",
+        "dosha": "Pitta",
+        "score": 3
+      },
+      {
+        "text": "Thick, smooth, oily, moist, radiant, cool",
+        "dosha": "Kapha",
+        "score": 3
+      }
+    ]
+  },
+  {
+    "id": "pq3",
+    "category": "Appetite & Digestion (Agni)",
+    "questionEn": "How is your daily appetite and digestion?",
+    "questionHi": "आपकी भूख और पाचन शक्ति (अग्नि) कैसी है?",
+    "options": [
+      {
+        "text": "Irregular (Vishama Agni) - sometimes very hungry, sometimes not, prone to bloating/gas",
+        "dosha": "Vata",
+        "score": 3
+      },
+      {
+        "text": "Intense & sharp (Tikshna Agni) - cannot skip meals, prone to acidity/heartburn",
+        "dosha": "Pitta",
+        "score": 3
+      },
+      {
+        "text": "Slow but steady (Manda Agni) - can skip meals easily, feels heavy after eating",
+        "dosha": "Kapha",
+        "score": 3
+      }
+    ]
+  },
+  {
+    "id": "pq4",
+    "category": "Bowel Habits (Koshtha)",
+    "questionEn": "How is your bowel movement regularity?",
+    "questionHi": "आपका पेट साफ होने की प्रवृत्ति (कोष्ठ) कैसी है?",
+    "options": [
+      {
+        "text": "Hard, dry, irregular, prone to constipation (Krura Koshtha)",
+        "dosha": "Vata",
+        "score": 3
+      },
+      {
+        "text": "Soft, loose, frequent, easily stimulated by milk/fruits (Mridu Koshtha)",
+        "dosha": "Pitta",
+        "score": 3
+      },
+      {
+        "text": "Moderate, regular, formed, slow (Madhyama Koshtha)",
+        "dosha": "Kapha",
+        "score": 3
+      }
+    ]
+  },
+  {
+    "id": "pq5",
+    "category": "Sleep Pattern (Nidra)",
+    "questionEn": "How is your typical sleep quality?",
+    "questionHi": "आपकी नींद का स्वरूप कैसा रहता है?",
+    "options": [
+      {
+        "text": "Light, interrupted, light sleeper, often restless (Alpa Nidra)",
+        "dosha": "Vata",
+        "score": 3
+      },
+      {
+        "text": "Moderate, sound, awakens easily if warm (Madhyama Nidra)",
+        "dosha": "Pitta",
+        "score": 3
+      },
+      {
+        "text": "Deep, heavy, long hours, difficult to wake up in the morning (Gadha Nidra)",
+        "dosha": "Kapha",
+        "score": 3
+      }
+    ]
+  },
+  {
+    "id": "pq6",
+    "category": "Weather Tolerance",
+    "questionEn": "Which weather is most uncomfortable for you?",
+    "questionHi": "आपको किस प्रकार का मौसम सबसे अधिक कष्टदायक लगता है?",
+    "options": [
+      {
+        "text": "Dislikes cold, windy, dry weather; loves warmth and sun",
+        "dosha": "Vata",
+        "score": 3
+      },
+      {
+        "text": "Dislikes hot, humid weather; sweats profusely, prefers air conditioning",
+        "dosha": "Pitta",
+        "score": 3
+      },
+      {
+        "text": "Dislikes cold, damp, rainy weather; comfortable in dry warmth",
+        "dosha": "Kapha",
+        "score": 3
+      }
+    ]
+  },
+  {
+    "id": "pq7",
+    "category": "Mental Nature & Speech (Manasa Prakriti)",
+    "questionEn": "How is your thinking, speaking, and emotional tendency?",
+    "questionHi": "आपकी सोच, बोलने की गति और स्वभाव कैसा है?",
+    "options": [
+      {
+        "text": "Fast-talking, quick thinker, creative, gets anxious or worried easily",
+        "dosha": "Vata",
+        "score": 3
+      },
+      {
+        "text": "Sharp, precise, articulate, ambitious, gets irritated or angry quickly",
+        "dosha": "Pitta",
+        "score": 3
+      },
+      {
+        "text": "Calm, patient, steady, speaks slowly and melodiously, forgiving",
+        "dosha": "Kapha",
+        "score": 3
+      }
+    ]
+  },
+  {
+    "id": "pq8",
+    "category": "Physical Activity & Stamina (Bala)",
+    "questionEn": "How is your energy level and physical endurance?",
+    "questionHi": "आपकी शारीरिक ऊर्जा और कार्य क्षमता (बल) कैसी है?",
+    "options": [
+      {
+        "text": "High bursts of energy but fatigues quickly, low stamina (Alpa Bala)",
+        "dosha": "Vata",
+        "score": 3
+      },
+      {
+        "text": "Moderate stamina, works intensely, gets exhausted in hot sun (Madhyama Bala)",
+        "dosha": "Pitta",
+        "score": 3
+      },
+      {
+        "text": "Excellent endurance, high stamina, steady and long-lasting energy (Uttama Bala)",
+        "dosha": "Kapha",
+        "score": 3
+      }
+    ]
+  }
+]

@@ -1,0 +1,136 @@
+[
+  {
+    "id": "D001",
+    "name": "Paracetamol",
+    "type": "Allopathic",
+    "commonDoses": [
+      "500mg",
+      "650mg"
+    ],
+    "category": "Antipyretic / Analgesic",
+    "schedule": "H"
+  },
+  {
+    "id": "D002",
+    "name": "Amoxicillin + Clavulanic Acid (Augmentin)",
+    "type": "Allopathic",
+    "commonDoses": [
+      "625mg",
+      "375mg"
+    ],
+    "category": "Antibiotic",
+    "schedule": "H1"
+  },
+  {
+    "id": "D003",
+    "name": "Metformin",
+    "type": "Allopathic",
+    "commonDoses": [
+      "500mg",
+      "850mg",
+      "1000mg"
+    ],
+    "category": "Antidiabetic",
+    "schedule": "H"
+  },
+  {
+    "id": "D004",
+    "name": "Amlodipine",
+    "type": "Allopathic",
+    "commonDoses": [
+      "2.5mg",
+      "5mg",
+      "10mg"
+    ],
+    "category": "Antihypertensive",
+    "schedule": "H"
+  },
+  {
+    "id": "D005",
+    "name": "Telmisartan",
+    "type": "Allopathic",
+    "commonDoses": [
+      "40mg",
+      "80mg"
+    ],
+    "category": "Antihypertensive",
+    "schedule": "H"
+  },
+  {
+    "id": "D006",
+    "name": "Pantoprazole",
+    "type": "Allopathic",
+    "commonDoses": [
+      "40mg"
+    ],
+    "category": "Proton Pump Inhibitor",
+    "schedule": "H"
+  },
+  {
+    "id": "D007",
+    "name": "Azithromycin",
+    "type": "Allopathic",
+    "commonDoses": [
+      "250mg",
+      "500mg"
+    ],
+    "category": "Antibiotic",
+    "schedule": "H1"
+  },
+  {
+    "id": "D008",
+    "name": "Cetirizine",
+    "type": "Allopathic",
+    "commonDoses": [
+      "5mg",
+      "10mg"
+    ],
+    "category": "Antihistamine",
+    "schedule": "H"
+  },
+  {
+    "id": "D009",
+    "name": "Aspirin (Ecosprin)",
+    "type": "Allopathic",
+    "commonDoses": [
+      "75mg",
+      "150mg"
+    ],
+    "category": "Antiplatelet",
+    "schedule": "H"
+  },
+  {
+    "id": "D010",
+    "name": "Atorvastatin",
+    "type": "Allopathic",
+    "commonDoses": [
+      "10mg",
+      "20mg",
+      "40mg"
+    ],
+    "category": "Lipid Lowering",
+    "schedule": "H"
+  },
+  {
+    "id": "D011",
+    "name": "Levothyroxine",
+    "type": "Allopathic",
+    "commonDoses": [
+      "25mcg",
+      "50mcg",
+      "100mcg"
+    ],
+    "category": "Thyroid Hormone",
+    "schedule": "H"
+  },
+  {
+    "id": "D012",
+    "name": "Salbutamol Inhaler",
+    "type": "Allopathic",
+    "commonDoses": [
+      "100mcg/puff"
+    ],
+    "category": "Bronchodilator",
+    "schedule": "H"
+  }
+]
