@@ -3,9 +3,12 @@ services:
     name: sih-26047-patient-intake
     env: node
     plan: free
-    rootDir: server
-    buildCommand: npm install
-    startCommand: node server.js
+    rootDir: .
+    nodeVersion: 20
+    buildCommand: |
+      cd client && npm install && npm run build
+      cd ../server && npm install
+    startCommand: cd server && node server.js
     envVars:
       - key: NODE_ENV
         value: production

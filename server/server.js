@@ -2,6 +2,7 @@
 import express from 'express';
 import cors from 'cors';
 import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 import apiRoutes from './routes/apiRoutes.js';
 import { SecureStorage } from './crypto/storage.js';
@@ -11,13 +12,19 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+const distPath = path.join(__dirname, '..', 'client', 'dist');
+const fallbackStaticPath = path.join(__dirname, 'public');
+const hasBuiltClient = fs.existsSync(path.join(distPath, 'index.html'));
 
 app.use(cors());
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Serve static frontend from public folder
-app.use(express.static(path.join(__dirname, 'public')));
+if (hasBuiltClient) {
+  app.use(express.static(distPath));
+} else {
+  app.use(express.static(fallbackStaticPath));
+}
 
 // Request logging middleware
 app.use((req, res, next) => {
@@ -43,7 +50,11 @@ app.get('/health', (req, res) => {
 
 // Fallback to index.html for SPA routing
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  const indexPath = hasBuiltClient
+    ? path.join(distPath, 'index.html')
+    : path.join(fallbackStaticPath, 'index.html');
+
+  res.sendFile(indexPath);
 });
 
 app.listen(PORT, () => {
